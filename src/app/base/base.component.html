@@ -1,0 +1,29 @@
+<div class="contaienr">
+    <div>
+        <button class="primary" (click)="showList = !showList">Select Items</button>
+        <div [hidden]="showList">
+            <div *ngFor="let item of items">
+                <input type="checkbox" [id]="item.id" [checked]="item.selected" [value]="item.id" 
+                    [name]="item.id" (change)="item.selected = !item.selected"/>
+                <label [for]="item.id">{{item.name}}</label>
+            </div>
+        </div>
+    </div>
+    <div>
+        <button class="primary" (click)="getDishes()">Get Dishes</button>
+    </div>
+    <div>
+        <table>
+            <tr>
+                <th>
+                    Dish Name
+                </th>
+            </tr>
+            <tr *ngFor="let dish of returnVal">
+                <td>
+                    {{dish.name}}
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
